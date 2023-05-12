@@ -4,9 +4,9 @@ import ProductQuantity from "../components/ProductQuantity";
 import BuyButton from "../components/BuyButton";
 import ShareProduct from "../components/ShareProduct";
 import {uniqueProduct} from "../request/fetching.js";
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import "../style/product.css"
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import "../style/product.css";
 
 
 function Product() {
@@ -20,15 +20,27 @@ function Product() {
         <>
             <Header />
             <section>
-            {productito!=null ? 
-            (<div className='productito'>
+          {
+          (productito!=null)
+            ? 
+          (<div className='productito'>
             <img src={productito.images[0]}/>
             <strong>{productito.title}</strong>
             <strong>${productito.price}</strong>
             <p>{productito.description}</p></div>)
 
+            {
+              productito.images.length >= 4 ? (<div>
+                <img src={productito.images[1]} alt={productito.title} />
+                <img src={productito.images[2]} alt={productito.title} />
+                <img src={productito.images[3]} alt={productito.title} />
+              </div>)
+              : (null)
+              
+            }
+
             :("no hay producto")
-        }
+          }
             </section>
             <ProductQuantity />
             <BuyButton />
