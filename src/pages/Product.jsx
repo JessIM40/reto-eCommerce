@@ -14,7 +14,7 @@ function Product() {
     const params = useParams()
     useEffect(() => {
         uniqueProduct(params.id, setProductito)
-    }, [])
+    },[params.id])
 
     return (
         <>
