@@ -1,11 +1,15 @@
 import React from 'react'
 
-function CardProduct() {
+function CardProduct({producto}) {
   return (
     <>
             
-    Tarjetas de PRODUCTOS
-           
+                <div className='card-product'>
+                  <a href={`/product/${producto.id}`}>{producto.title}</a>
+                    <img src={producto.images[0]} alt=""  className='imagen-producto'/>
+                    <p>{producto.description}</p>
+                    <strong>${producto.price}</strong>
+                </div>   
     </>
   )
 }
