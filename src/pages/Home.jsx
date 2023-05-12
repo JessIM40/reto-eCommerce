@@ -1,27 +1,52 @@
 import Header from "../components/Header"
 import CardProduct from "../components/CardProduct"
 import Footer from "../components/Footer"
+import "../style/home.css"
 
-function Home(){
-    return(
+
+import { useEffect, useState } from "react"
+import {getProducts} from "../request/fetching.js";
+
+function Home() {
+    const [products, setProducts] = useState(null);
+    useEffect(() => {
+        getProducts(setProducts);
+    }, []);
+
+
+    return (
         <>
-        <Header/>
+            <Header />
 
-        <main>
-            <section>
-                Carrusel de promociones ASIDE??
-            </section>
-            
-            <section>
-            <input type='search' placeholder="Search"/>
-            <img alt="Lupa"/>
+            <main>
+                <section>
+                    Carrusel de promociones ASIDE??
+                </section>
 
-            <CardProduct/>
-            </section>
+                <section className="productos">
+                    <input type='search' placeholder="Search" />
+                    <img alt="Lupa" />
+                    <p>home</p>
+                    {
+                        products == null
+                            ? "Loading..."
+                            : (products.map((product) => {
+                                console.log(product)
+                                return (
+                                    <CardProduct key={product.id}
+                                    producto={product}
+                                    />
+                                        
+                                    
+                                )
+                            }))
+                    }
 
-        </main>
+                </section>
 
-        <Footer/>
+            </main>
+
+            <Footer />
 
         </>
     )
