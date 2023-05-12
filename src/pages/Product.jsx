@@ -1,24 +1,39 @@
-import Header from "../components/Header"
-import Footer from "../components/Footer"
-import ProductQuantity from "../components/ProductQuantity"
-import BuyButton from "../components/BuyButton"
-import ShareProduct from "../components/ShareProduct"
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import ProductQuantity from "../components/ProductQuantity";
+import BuyButton from "../components/BuyButton";
+import ShareProduct from "../components/ShareProduct";
+import {uniqueProduct} from "../request/fetching.js";
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import "../style/product.css"
 
-function Product(){
-    return(
+
+function Product() {
+    const [productito, setProductito] = useState(null)
+    const params = useParams()
+    useEffect(() => {
+        uniqueProduct(params.id, setProductito)
+    }, [])
+
+    return (
         <>
-        <Header/>
-        <section>
-            <img src="#" alt="Imagen grande del producto" />
-            <h3>Nombre del Producto</h3>
-            <h2>$ Precio</h2>
-            <p>Descripcion del producto</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis veritatis voluptates, cum non tempore illum. Ipsam, explicabo maxime odio laudantium dicta sunt porro blanditiis earum tenetur totam voluptatum, omnis eligendi.</p>
-        </section>
-        <ProductQuantity/>
-        <BuyButton/>
-        <ShareProduct/>
-        <Footer/>
+            <Header />
+            <section>
+            {productito!=null ? 
+            (<div className='productito'>
+            <img src={productito.images[0]}/>
+            <strong>{productito.title}</strong>
+            <strong>${productito.price}</strong>
+            <p>{productito.description}</p></div>)
+
+            :("no hay producto")
+        }
+            </section>
+            <ProductQuantity />
+            <BuyButton />
+            <ShareProduct />
+            <Footer />
         </>
     )
 }

@@ -1,1 +1,1 @@
-Este es un proyecto desarrollado por Jhoa, Ana y Jess
+Este es un proyecto desarrollado por Jhoa, Ana, Jess y Nico
