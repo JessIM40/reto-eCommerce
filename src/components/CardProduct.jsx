@@ -1,5 +1,5 @@
-import React from 'react'
-
+/* eslint-disable react/prop-types */
+//import React from 'react'
 function CardProduct({producto}) {
   return (
     <>
@@ -14,4 +14,4 @@ function CardProduct({producto}) {
   )
 }
 
-export default CardProduct
+export default CardProduct;
