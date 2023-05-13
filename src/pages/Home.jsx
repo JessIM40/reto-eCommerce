@@ -9,7 +9,6 @@ import { promociones } from "../request/funciones.js";
 function Home() {
   const [products, setProducts] = useState(null);
   const [promos, setPromos] = useState([]);
-  // const [prodCategory, setProdCategory] = useState(null);
   const [selectedCategory, setSelectCategory] = useState('');
 
   const [search, setSearch] = useState("");
@@ -18,23 +17,16 @@ function Home() {
     console.log(e.target.value);
   };
 
-  const results = !search
-    ? products
-    : products.filter((product) =>
-      product.title.toLowerCase().includes(search.toLocaleLowerCase())
-    );
+  const results = selectedCategory!=""?products.filter((product)=>product.category.includes(selectedCategory)):!search ? products: products.filter((product) => product.title.toLowerCase().includes(search.toLocaleLowerCase()));
 
   useEffect(() => {
     getProducts(setProducts);
   }, []);
 
 
-  
-
   // useEffect(() => {
   //   getProductsByCategory(setProdCategory, categoria);
   // }, [products]);
-
 
   console.log("PRODUCTOS EXITENTES", products)
   //  let promosio=promociones(products,4);
@@ -43,10 +35,6 @@ function Home() {
   const filterBtn = async (category) => {
     await getProductsByCategory(category);
   }
-
-
-
-
 
   return (
     <>
