@@ -1,19 +1,18 @@
-import React from "react";
+import "../style/footer.css";
 
 function Footer() {
   return (
     <footer>
       <p>
-        <strong>Contact Us</strong>
+        <strong className="contactTitle">Contáctanos</strong>
       </p>
-      <p>Info</p>
-
+      <p>info@paulette.com</p>
       <div>
         <img alt="Facebook" />
         <img alt="Twitter" />
         <img alt="Instagram" />
       </div>
-      <p>Copyright Made with LOVE</p>
+      <p className="copyFooter">Copyright 2023 Made with LOVE</p>
     </footer>
   );
 }

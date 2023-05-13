@@ -1,0 +1,69 @@
+header{
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--color-gray-white);
+    align-items: center;
+    /* text-align: center;  */
+  
+}
+
+.logo{
+    display: flex;
+    width: 40%;
+    /* height: 100%; */
+    align-items: center;
+    /* border: 2px solid yellow; */
+    justify-content: space-around;
+    align-items: center;
+    margin-left: -10px;
+}
+
+h1{
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    /* margin-left: -1rem; */
+}
+
+
+nav{
+    width: 50%;
+    /* height: 100%; */
+    display: flex;
+    align-items: center;
+    /* border: 2px solid yellow; */
+    justify-content: space-around;
+    align-items: center;
+    margin-right: -10px;
+}
+
+.buttonLoginRegister{
+    border: none;
+    background-color: var(--color-gray-white);
+    color: var(--color-pink);
+    font-size: 0.7rem;
+    padding-top: 7px;
+    
+}
+
+.shoppingCartBtn, .backBtn{
+    height: 40%;
+    width: 15%;
+    /* border: 2px solid var(--color-pink); */
+    background-color: var(--color-gray-white);
+    border: none;
+}
+
+
+
+.imgBack, .imgShoppingCart{
+    height: 100%;
+    width: 100%;
+    color: var(--color-purple);
+    /* border: 2px solid var(--color-gray-black); */
+     
+}
+
+
+    

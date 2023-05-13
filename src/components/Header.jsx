@@ -1,21 +1,37 @@
-// import React from 'react'
+import { useNavigate } from "react-router-dom";
+import "../style/header.css";
+import back from "../assets/atras.png";
+import shoppingCart from "../assets/carrito-de-compras.png"
 
 function Header() {
+  const navigate = useNavigate();
+
   return (
     <header>
-    <img alt="Volver"/>
-    <h1> 
-    NombreApp 
-    </h1>
-    <button> 
-    Login/Register 
-    </button>
-    {/* <p>
+      <section className="logo">
+        <button className="backBtn">
+          <img className="imgBack" src={back} alt="" />
+          {/* <i className="fi fi-sr-angle-left"></i> */}
+        </button>
+        <h1 onClick={() => navigate("/")}>Paulette</h1>
+      </section>
+      <nav>
+        <button
+          className="buttonLoginRegister"
+          onClick={() => navigate("/register")}
+        >
+          INGRESA/REGÍSTRATE
+        </button>
+        {/* <p>
         Bienvenido User!!
     </p> */}
-    <img alt="Carrito"/>
-</header>
-  )
+        <button className="shoppingCartBtn">
+          <img className="imgShoppingCart" src={shoppingCart} alt="" />
+          {/* <i className="fi fi-sr-shopping-cart"></i> */}
+        </button>
+      </nav>
+    </header>
+  );
 }
 
-export default Header
+export default Header;
