@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getProducts } from "../request/fetching.js";
 import Header from "../components/Header";
 import CardProduct from "../components/CardProduct";
 import Footer from "../components/Footer";
 import "../style/home.css";
+import PromoCarousel from "../components/PromoCarousel.jsx";
+
 
 function Home() {
   const [products, setProducts] = useState(null);
@@ -29,7 +31,7 @@ function Home() {
       <Header />
 
       <main>
-        <section>Carrusel de promociones ASIDE??</section>
+       <PromoCarousel/>
 
         <section className="productos">
           <input
