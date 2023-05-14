@@ -5,6 +5,9 @@ import CardProduct from "../components/CardProduct";
 import Footer from "../components/Footer";
 import "../style/home.css";
 import PromoCarousel from "../components/PromoCarousel.jsx";
+import { BiSearchAlt } from "react-icons/bi";
+
+
 
 
 function Home() {
@@ -19,8 +22,8 @@ function Home() {
   const results = !search
     ? products
     : products.filter((product) =>
-        product.title.toLowerCase().includes(search.toLocaleLowerCase())
-      );
+      product.title.toLowerCase().includes(search.toLocaleLowerCase())
+    );
 
   useEffect(() => {
     getProducts(setProducts);
@@ -31,23 +34,25 @@ function Home() {
       <Header />
 
       <main>
-       <PromoCarousel/>
+        <PromoCarousel />
 
         <section className="productos">
+          <div className="buscador">
           <input
             type="search"
             value={search}
             placeholder="Search"
             onChange={searcher}
+            className="input-buscador"
           />
-          <img alt="Lupa" />
-          <p>home</p>
+          <BiSearchAlt className="icon-share" size={"2rem"} />
+          </div>
           {products == null
             ? "Loading..."
             : results.map((product) => {
-                console.log(product);
-                return <CardProduct key={product.id} producto={product} />;
-              })}
+              console.log(product);
+              return <CardProduct key={product.id} producto={product} />;
+            })}
         </section>
       </main>
 
