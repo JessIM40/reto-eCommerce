@@ -18,10 +18,9 @@ function Home() {
     console.log(e.target.value);
   };
 
-  
+
   let results;
-  if (selectedCategory == '' && searcher == "") 
-  { results = products }
+  if (selectedCategory == '' && searcher == "") { results = products }
 
   if (selectedCategory == '' && searcher != "") {
     results = products.filter((product) => product.title.toLowerCase().includes(search.toLocaleLowerCase()))
@@ -33,7 +32,7 @@ function Home() {
     let resultCategory = products.filter((product) => product.category.includes(selectedCategory))
     results = resultCategory.filter((product) => product.title.toLowerCase().includes(search.toLocaleLowerCase()))
   }
-  
+
 
 
 
@@ -60,8 +59,19 @@ function Home() {
       <Header />
 
       <main>
-       <PromoCarousel/>
-
+        <PromoCarousel />
+        <div>
+          <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+            <option value="">Todas</option>
+            <option value="smartphones">smartphones</option>
+            <option value="laptops">laptops</option>
+            <option value="fragrances">fragrances</option>
+            <option value="skincare">skincare</option>
+            <option value="groceries">groceries</option>
+            <option value="home-decoration">home-decoration</option>
+          </select>
+          <p>Opción seleccionada: {selectedCategory}</p>
+        </div>
         <section className="productos">
           <input
             type="search"
