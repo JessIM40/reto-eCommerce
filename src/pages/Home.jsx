@@ -7,9 +7,9 @@ import "../style/home.css";
 import { promociones } from "../request/funciones.js";
 
 function Home() {
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
   const [promos, setPromos] = useState([]);
-  const [selectedCategory, setSelectCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   const [search, setSearch] = useState("");
   const searcher = (e) => {
@@ -17,7 +17,25 @@ function Home() {
     console.log(e.target.value);
   };
 
-  const results = selectedCategory!=""?products.filter((product)=>product.category.includes(selectedCategory)):!search ? products: products.filter((product) => product.title.toLowerCase().includes(search.toLocaleLowerCase()));
+  
+  let results;
+  if (selectedCategory == '' && searcher == "") 
+  { results = products }
+
+  if (selectedCategory == '' && searcher != "") {
+    results = products.filter((product) => product.title.toLowerCase().includes(search.toLocaleLowerCase()))
+  }
+  if (selectedCategory != '' && searcher == "") {
+    results = products.filter((product) => product.category.includes(selectedCategory))
+  }
+  if (selectedCategory != '' && searcher != "") {
+    let resultCategory = products.filter((product) => product.category.includes(selectedCategory))
+    results = resultCategory.filter((product) => product.title.toLowerCase().includes(search.toLocaleLowerCase()))
+  }
+  
+
+
+
 
   useEffect(() => {
     getProducts(setProducts);
@@ -43,11 +61,11 @@ function Home() {
       <main>
         <section>Carrusel de promociones ASIDE??</section>
         <div>
-          <select value={selectedCategory} onChange={(e) => setSelectCategory(e.target.value)}>
+          <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
             <option value="">Todas</option>
             <option value="smartphones">smartphones</option>
             <option value="laptops">laptops</option>
-            <option value="fragances">fragances</option>
+            <option value="fragrances">fragrances</option>
             <option value="skincare">skincare</option>
             <option value="groceries">groceries</option>
             <option value="home-decoration">home-decoration</option>
