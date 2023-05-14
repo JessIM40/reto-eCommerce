@@ -1,60 +1,80 @@
-.containerRegister{
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 0.8rem;
-
+.containerRegister {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
 }
 
-.containerRegister h2{
-        color: var(--color-pink);
-        font-family: var(--font-title);
-        font-size: 1.8rem;
-        margin: 2rem;
-    
+.containerRegister h2 {
+  color: var(--color-pink);
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  margin: 2rem;
 }
 
-.formRegister{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    gap:0.5rem;
+.formRegister {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
-.formRegister input{
-    height: 5.3vh;
-    border: 2px solid var(--color-gray-black);
-    text-align: center;
-    color: var(--color-gray-black);
+.formRegister input {
+  height: 5.3vh;
+  border: 2px solid var(--color-gray-black);
+  text-align: center;
+  color: var(--color-gray-black);
 }
 
-.formRegister input::placeholder{
-    color: var(--color-gray);
-    font-family: var(--font-text);
-    text-align: center;
+.formRegister input::placeholder {
+  color: var(--color-gray);
+  font-family: var(--font-text);
+  text-align: center;
 }
 
-.formRegister button{
-    background-color: var(--color-pink);
-    border: none;
-    height: 5.3vh;
-    border-radius: 20px;
-    margin: 2rem;
-    color: var(--color-gray-white);
-    
+.messageError {
+  font-size: 0.6rem;
+  color: var(--color-pink);
+  /* margin-bottom: 0px;
+  border: 2px solid red; */
 }
 
-.formRegister div{
-    color: var(--color-gray);
-    font-size: 0.6rem;
+.formRegister button {
+  background-color: var(--color-pink);
+  border: none;
+  height: 5.3vh;
+  border-radius: 20px;
+  margin: 1.5rem;
+  color: var(--color-gray-white);
 }
 
-.containerRegister p{
-    margin: 2rem;
+.formRegister div {
+  color: var(--color-gray);
+  font-size: 0.6rem;
 }
 
-.a-login{
-    color: var(--color-purple);
+.containerRegister p {
+  margin: 1rem;
 }
 
+.a-login {
+  color: var(--color-purple);
+}
+
+.titleWelcome{
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    /* margin-left: -1rem; */
+}
+
+.btnWelcome{
+  color: var(--color-pink);
+}
+
+@media (max-width: 600px) {
+  .popupWelcome {
+    width: 80% !important;
+    max-width: 300px !important;
+  }
+}

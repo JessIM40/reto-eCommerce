@@ -22,31 +22,9 @@ function Home() {
       );
 
 
-      fetch('https://dummyjson.com/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          
-          username: "atuny0",
-          password: "9uQFF1Lh",
-          // expiresInMins: 60, // optional
-        })
-      })
-      .then(res => res.json())
-      .then(console.log);
+   
       
-      fetch('https://dummyjson.com/users/add', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    firstName: 'Ana',
-    lastName: 'Toribio',
-    age: 24,
-    /* other user data */
-  })
-})
-.then(res => res.json())
-.then(console.log);
+   
             
 
   useEffect(() => {

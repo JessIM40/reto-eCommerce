@@ -1,54 +1,61 @@
-.containerLogin{
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 0.8rem;
-
+.containerLogin {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
 }
 
-.containerLogin h2{
-        color: var(--color-pink);
-        font-family: var(--font-title);
-        font-size: 1.8rem;
-        margin: 2rem;
-    
+.containerLogin h2 {
+  color: var(--color-pink);
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  margin: 2rem;
 }
 
-.formLogin{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    gap:0.8rem;
+.formLogin {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
-.formLogin input{
-    height: 5.3vh;
-    border: 2px solid var(--color-gray-black);
-    text-align: center;
-    color: var(--color-gray-black);
+.formLogin input {
+  height: 5.3vh;
+  border: 2px solid var(--color-gray-black);
+  text-align: center;
+  color: var(--color-gray-black);
 }
 
-.formLogin input::placeholder{
-    color: var(--color-gray);
-    font-family: var(--font-text);
-    text-align: center;
+.formLogin input::placeholder {
+  color: var(--color-gray);
+  font-family: var(--font-text);
+  text-align: center;
 }
 
-.formLogin button{
-    background-color: var(--color-pink);
-    border: none;
-    height: 5.3vh;
-    border-radius: 20px;
-    margin: 2rem;
-    color: var(--color-gray-white);
-    
+.errorLogin{
+    font-size: 0.6rem;
+    color: var(--color-pink);
 }
 
-.containerLogin p{
-    margin: 1rem;
+.errorCredential{
+    color: var(--color-pink);
+    margin: 0 auto;
 }
 
-.a-login{
-    color: var(--color-purple);
+.formLogin button {
+  background-color: var(--color-pink);
+  border: none;
+  height: 5.3vh;
+  border-radius: 20px;
+  margin: 1rem;
+  color: var(--color-gray-white);
+}
+
+.containerLogin p {
+  margin: 1rem;
+}
+
+.a-login {
+  color: var(--color-purple);
 }
