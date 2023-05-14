@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import "../style/home.css";
 import PromoCarousel from "../components/PromoCarousel.jsx";
 import { promociones } from '../request/funciones'
+import {BiSearchAlt} from 
+// import { icons } from "react-icons";
 
 function Home() {
   const [products, setProducts] = useState(null);
@@ -45,7 +47,7 @@ function Home() {
             onChange={searcher}
             className="input-buscador"
           />
-          <BiSearchAlt className="icon-share" size={"2rem"} />
+          {/* <BiSearchAlt className="icon-share" size={"2rem"} /> */}
           </div>
           {products == null
             ? "Loading..."
