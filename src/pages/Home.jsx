@@ -33,7 +33,7 @@ function Home() {
       <main>
       { products == null
       ? 'Loading' 
-      :  <PromoCarousel key={products.id} promProduct={promociones(products)}/>
+      :  <PromoCarousel key={products.id} promProduct={promociones([...products],4)}/>
       }
 
         <section className="productos">
@@ -48,7 +48,7 @@ function Home() {
           {products == null
             ? "Loading..."
             : results.map((product) => {
-                console.log(product);
+                //console.log(product);
                 return <CardProduct key={product.id} producto={product} />;
               })}
         </section>
