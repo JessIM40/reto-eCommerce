@@ -21,16 +21,16 @@ function Product() {
       <section>
         {productito != null ? (
           <div className="productito">
-            <img src={productito.images[0]} />
+            <img className="imagen-principal" src={productito.images[0]} />
             <strong>{productito.title}</strong>
             <strong>${productito.price}</strong>
             <p>{productito.description}</p>
 
             {productito.images.length >= 4 ? (
-              <div>
-                <img src={productito.images[1]} alt={productito.title} />
-                <img src={productito.images[2]} alt={productito.title} />
-                <img src={productito.images[3]} alt={productito.title} />
+              <div className="imagenes-adicionales">
+                <img src={productito.images[1]} alt={productito.title} className="imagen-adicional"/>
+                <img src={productito.images[2]} alt={productito.title} className="imagen-adicional"/>
+                <img src={productito.images[3]} alt={productito.title} className="imagen-adicional"/>
               </div>
             ) : null}
           </div>
@@ -40,7 +40,7 @@ function Product() {
       </section>
       <ProductQuantity />
       <BuyButton />
-      <ShareProduct />
+      <ShareProduct id={params.id}/>
       <Footer />
     </>
   );
