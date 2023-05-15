@@ -5,6 +5,8 @@ import Product from "./pages/Product";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import Category from "./pages/Category";
+import ShoppingCart from "./pages/ShoppingCard";
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Route path="/product/:id" element={<Product />} />
           <Route path="*" element={<NotFound/>}/>
           <Route path="/category/:category" element={<Category/>} />
+          <Route path="/shoppingcart" element={<ShoppingCart/>}/>
         </Routes>
       </BrowserRouter>
     </>

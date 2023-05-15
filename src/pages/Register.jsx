@@ -125,7 +125,7 @@ function Register() {
           />
           <span className="messageError">{errors.password}</span>
           <div>
-            Debes usar al menos: Mínimo 8 caracteres - 1 mayúscula - 1 minúscula
+            Debes usar al menos: Mínimo 7 caracteres - 1 mayúscula - 1 minúscula
             - 1 número - Ningún espacio
           </div>
           <button>REGISTRARME</button>

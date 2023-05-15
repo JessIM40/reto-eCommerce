@@ -25,7 +25,7 @@ function Header() {
         {/* <p>
         Bienvenido User!!
     </p> */}
-        <button className="shoppingCartBtn">
+        <button className="shoppingCartBtn" onClick={()=> navigate("/shoppingcart")}>
           {/* <img className="imgShoppingCart" src={shoppingCart} alt="" /> */}
           <i className="fi fi-rr-shopping-cart"></i>
         </button>
