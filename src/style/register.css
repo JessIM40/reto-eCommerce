@@ -1,9 +1,11 @@
 .containerRegister {
   height: 90vh;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 0.8rem;
+  margin: 0 auto;
 }
 
 .containerRegister h2 {
@@ -25,6 +27,7 @@
   border: 2px solid var(--color-gray-black);
   text-align: center;
   color: var(--color-gray-black);
+  box-shadow: 0 2px 3px rgba(0 0 0 / 0.15);
 }
 
 .formRegister input::placeholder {
@@ -72,7 +75,17 @@
   color: var(--color-pink);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 360px) {
+
+  .containerRegister {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+
   .popupWelcome {
     width: 80% !important;
     max-width: 300px !important;

@@ -4,15 +4,17 @@ import Header from "../components/Header";
 import CardProduct from "../components/CardProduct";
 import Footer from "../components/Footer";
 import "../style/home.css";
+import Searching from "../components/Searching.jsx";
+import Categories from "../components/Categories.jsx";
 
 function Home() {
   const [products, setProducts] = useState(null);
 
   const [search, setSearch] = useState("");
-  
-  const searcher = (e) => {
-    setSearch(e.target.value);
-    console.log(e.target.value);
+
+  const searcher = (value) => {
+    setSearch(value);
+    console.log(value);
   };
 
   const results = !search
@@ -21,11 +23,6 @@ function Home() {
         product.title.toLowerCase().includes(search.toLocaleLowerCase())
       );
 
-
-   
-      
-   
-            
 
   useEffect(() => {
     getProducts(setProducts);
@@ -36,23 +33,20 @@ function Home() {
       <Header />
 
       <main>
-        <section></section>
+        <section className="containerPromos">PROMOS</section>
 
-        <section className="productos">
-          <input
-            type="search"
-            value={search}
-            placeholder="Search"
-            onChange={searcher}
-          />
-          <img alt="Lupa" />
-          <p>home</p>
-          {products == null
-            ? "Loading..."
-            : results.map((product) => {
-                //console.log(product);
-                return <CardProduct key={product.id} producto={product} />;
-              })}
+        <Categories></Categories>
+
+        <section className="padreProductos">
+          <Searching onSearch={searcher}></Searching>
+          <div className="containerProducts">
+            {products == null
+              ? "Loading..."
+              : results.map((product) => {
+                  //console.log(product);
+                  return <CardProduct key={product.id} producto={product} />;
+                })}
+          </div>
         </section>
       </main>
 

@@ -11,6 +11,7 @@ import "../style/product.css";
 function Product() {
   const [productito, setProductito] = useState(null);
   const params = useParams();
+
   useEffect(() => {
     uniqueProduct(params.id, setProductito);
   }, []);
@@ -18,16 +19,16 @@ function Product() {
   return (
     <>
       <Header />
-      <section>
+      <section className="container-page-product">
         {productito != null ? (
           <div className="productito">
-            <img src={productito.images[0]} />
-            <strong>{productito.title}</strong>
-            <strong>${productito.price}</strong>
+            <img src={productito.images[0]} className="imgPrincipal" />
+            <h3>{productito.title}</h3>
+            <p><strong className="cost">${productito.price}</strong></p>
             <p>{productito.description}</p>
 
             {productito.images.length >= 4 ? (
-              <div>
+              <div className="imagesProduct">
                 <img src={productito.images[1]} alt={productito.title} />
                 <img src={productito.images[2]} alt={productito.title} />
                 <img src={productito.images[3]} alt={productito.title} />

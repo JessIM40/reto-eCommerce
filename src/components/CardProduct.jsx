@@ -1,17 +1,14 @@
-import React from 'react'
+import "../style/cardProduct.css"
 
-function CardProduct({producto}) {
+function CardProduct({ producto }) {
   return (
-    <>
-            
-                <div className='card-product'>
-                  <a href={`/product/${producto.id}`}>{producto.title}</a>
-                    <img src={producto.images[0]} alt=""  className='imagen-producto'/>
-                    <p>{producto.description}</p>
-                    <strong>${producto.price}</strong>
-                </div>   
-    </>
-  )
+    <div className="card-product">
+      <img src={producto.images[0]} alt={producto.title} className="imagen-producto" />
+      <a href={`/product/${producto.id}`} className="">{producto.title}</a>
+      <p>{producto.description}</p>
+      <strong>${producto.price}</strong>
+    </div>
+  );
 }
 
-export default CardProduct
+export default CardProduct;

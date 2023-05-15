@@ -34,7 +34,16 @@ async function loginUser(state) {
   });
   const data = response.json();
   //console.log(data)
-  return(data)
+  return data;
 }
 
-export { getProducts, uniqueProduct, addUser, loginUser };
+async function categorySmartPhone(category, state) {
+  const response = await fetch(
+    `https://dummyjson.com/products/category/${category}`
+  );
+  const data = await response.json();
+  console.log(data);
+  state(data.products)
+}
+
+export { getProducts, uniqueProduct, addUser, loginUser, categorySmartPhone };

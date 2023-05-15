@@ -1,0 +1,24 @@
+.container-products-categories{
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    margin: 3rem auto;
+}
+
+/* .container-products-categories div{
+    margin-top: 6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}  */
+
+.productsDifCategory{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; 
+    /* border: 2px solid black; */
+    margin-top: 4.5rem;
+    justify-content: center;
+    
+}
