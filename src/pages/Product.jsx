@@ -40,7 +40,7 @@ function Product() {
       </section>
       <ProductQuantity />
       <BuyButton />
-      <ShareProduct />
+      <ShareProduct id={params.id}/>
       <Footer />
     </>
   );

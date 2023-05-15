@@ -9,7 +9,6 @@ import { promociones } from '../request/funciones'
 
 function Home() {
   const [products, setProducts] = useState(null);
-  const [promos, setPromos] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
 
   const [search, setSearch] = useState("");
