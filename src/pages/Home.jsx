@@ -9,6 +9,8 @@ import { promociones } from '../request/funciones'
 
 function Home() {
   const [products, setProducts] = useState(null);
+  const [promos, setPromos] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   const [search, setSearch] = useState("");
   const searcher = (e) => {
@@ -20,7 +22,7 @@ function Home() {
   if (selectedCategory == '' && searcher == "") 
   { results = products }
 
-  if (selectedCategory == '' && searcher != "") {
+  if (selectedCategory == '' && searcher != "" && products) {
     results = products.filter((product) => product.title.toLowerCase().includes(search.toLocaleLowerCase()))
   }
   if (selectedCategory != '' && searcher == "") {
@@ -40,6 +42,10 @@ function Home() {
       <Header />
 
       <main>
+      { products == null
+      ? 'Loading' 
+      :  <PromoCarousel key={products.id} promProduct={promociones(products)}/>
+      }
       <section>Carrusel de promociones ASIDE??</section>
         <div>
           <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
