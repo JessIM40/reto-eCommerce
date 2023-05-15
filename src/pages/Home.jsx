@@ -5,7 +5,7 @@ import CardProduct from "../components/CardProduct";
 import Footer from "../components/Footer";
 import "../style/home.css";
 import PromoCarousel from "../components/PromoCarousel.jsx";
-
+import { promociones } from '../request/funciones'
 
 function Home() {
   const [products, setProducts] = useState([]);
