@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../request/fetching.js";
+import { getProducts, getProductsByCategory } from "../request/fetching.js";
 import Header from "../components/Header";
 import CardProduct from "../components/CardProduct";
 import Footer from "../components/Footer";
@@ -8,7 +8,9 @@ import PromoCarousel from "../components/PromoCarousel.jsx";
 import { promociones } from '../request/funciones'
 
 function Home() {
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [promos, setPromos] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   const [search, setSearch] = useState("");
   const searcher = (e) => {
@@ -16,26 +18,60 @@ function Home() {
     console.log(e.target.value);
   };
 
-  const results = !search
-    ? products
-    : products.filter((product) =>
-        product.title.toLowerCase().includes(search.toLocaleLowerCase())
-      );
+
+  let results;
+  if (selectedCategory == '' && searcher == "") { results = products }
+
+  if (selectedCategory == '' && searcher != "") {
+    results = products.filter((product) => product.title.toLowerCase().includes(search.toLocaleLowerCase()))
+  }
+  if (selectedCategory != '' && searcher == "") {
+    results = products.filter((product) => product.category.includes(selectedCategory))
+  }
+  if (selectedCategory != '' && searcher != "") {
+    let resultCategory = products.filter((product) => product.category.includes(selectedCategory))
+    results = resultCategory.filter((product) => product.title.toLowerCase().includes(search.toLocaleLowerCase()))
+  }
+
+
+
+
 
   useEffect(() => {
     getProducts(setProducts);
   }, []);
+
+
+  // useEffect(() => {
+  //   getProductsByCategory(setProdCategory, categoria);
+  // }, [products]);
+
+  console.log("PRODUCTOS EXITENTES", products)
+  //  let promosio=promociones(products,4);
+  //  console.log("PROMOSIONES",promosio)
+
+  const filterBtn = async (category) => {
+    await getProductsByCategory(category);
+  }
 
   return (
     <>
       <Header />
 
       <main>
-      { products == null
-      ? 'Loading' 
-      :  <PromoCarousel key={products.id} promProduct={promociones(products)}/>
-      }
-
+        <PromoCarousel />
+        <div>
+          <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+            <option value="">Todas</option>
+            <option value="smartphones">smartphones</option>
+            <option value="laptops">laptops</option>
+            <option value="fragrances">fragrances</option>
+            <option value="skincare">skincare</option>
+            <option value="groceries">groceries</option>
+            <option value="home-decoration">home-decoration</option>
+          </select>
+          <p>Opción seleccionada: {selectedCategory}</p>
+        </div>
         <section className="productos">
           <input
             type="search"
@@ -48,9 +84,10 @@ function Home() {
           {products == null
             ? "Loading..."
             : results.map((product) => {
-                console.log(product);
-                return <CardProduct key={product.id} producto={product} />;
-              })}
+              // console.log(product);
+              return <CardProduct key={product.id} producto={product} />;
+            })
+          }
         </section>
       </main>
 
@@ -60,3 +97,4 @@ function Home() {
 }
 
 export default Home;
+
