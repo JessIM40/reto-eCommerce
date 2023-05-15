@@ -12,16 +12,7 @@ const uniqueProduct=async (id, state)=>{
   state(data)
   console.log(data)
 }
-const getProductsByCategory=async( category)=>{
-const response =await fetch(`https://dummyjson.com/products/category/${category}`)
-const data = await response.json();
-// state(data)
-console.log(data)
-
-return data;
-}  
-
-
+ 
 export{
-  getProducts, uniqueProduct, getProductsByCategory
+  getProducts, uniqueProduct
 }
