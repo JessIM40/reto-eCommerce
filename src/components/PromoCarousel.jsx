@@ -4,7 +4,7 @@ import { Carousel } from 'react-bootstrap';
 function PromoCarousel ({promProduct}) {
   return (
     <>
-      <Carousel style={{background:"black"} }>
+      <Carousel style={{background:"black"}}>
       <Carousel.Item>
         <img
           className="d-block"
