@@ -16,11 +16,20 @@ function Home() {
     console.log(e.target.value);
   };
 
-  const results = !search
-    ? products
-    : products.filter((product) =>
-        product.title.toLowerCase().includes(search.toLocaleLowerCase())
-      );
+  let results;
+  if (selectedCategory == '' && searcher == "") 
+  { results = products }
+
+  if (selectedCategory == '' && searcher != "") {
+    results = products.filter((product) => product.title.toLowerCase().includes(search.toLocaleLowerCase()))
+  }
+  if (selectedCategory != '' && searcher == "") {
+    results = products.filter((product) => product.category.includes(selectedCategory))
+  }
+  if (selectedCategory != '' && searcher != "") {
+    let resultCategory = products.filter((product) => product.category.includes(selectedCategory))
+    results = resultCategory.filter((product) => product.title.toLowerCase().includes(search.toLocaleLowerCase()))
+  }
 
   useEffect(() => {
     getProducts(setProducts);
@@ -31,10 +40,19 @@ function Home() {
       <Header />
 
       <main>
-      { products == null
-      ? 'Loading' 
-      :  <PromoCarousel key={products.id} promProduct={promociones(products)}/>
-      }
+      <section>Carrusel de promociones ASIDE??</section>
+        <div>
+          <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+            <option value="">Todas</option>
+            <option value="smartphones">smartphones</option>
+            <option value="laptops">laptops</option>
+            <option value="fragrances">fragrances</option>
+            <option value="skincare">skincare</option>
+            <option value="groceries">groceries</option>
+            <option value="home-decoration">home-decoration</option>
+          </select>
+          <p>Opción seleccionada: {selectedCategory}</p>
+        </div>
 
         <section className="productos">
           <input
